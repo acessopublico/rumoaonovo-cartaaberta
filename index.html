@@ -1,0 +1,373 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Carta Aberta – Glenda Negreiros</title> 
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+<style> 
+body { 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Barlow', sans-serif; 
+    background: #f4f6f8; 
+    display: flex; 
+    justify-content: center; 
+    color: #333; 
+    overflow-x: hidden;
+} 
+ 
+/* Barra de progresso */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    background-color: #263868;
+    width: 0%;
+    transition: width 0.2s ease;
+    z-index: 1000;
+}
+ 
+.container { 
+    position: relative; 
+    width: 90%; 
+    max-width: 1000px; 
+    background: #FEFEFE; 
+    padding: 2rem; 
+    margin: 2rem 0; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+    border-radius: 12px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2rem; 
+} 
+ 
+.header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 3px solid #263868; 
+    padding-bottom: 1rem; 
+} 
+ 
+.logo { 
+    font-size: 28px; 
+    font-weight: 700; 
+    color: #263868; 
+} 
+ 
+.title-section { 
+    text-align: right; 
+} 
+ 
+.title-section .title { 
+    font-size: 18px; 
+    font-weight: 600; 
+    color: #263868; 
+} 
+ 
+.title-section .date { 
+    font-size: 14px; 
+    color: #A9ABAE; 
+    margin-top: 3px; 
+} 
+ 
+.main-content { 
+    display: flex; 
+    gap: 2rem; 
+    align-items: flex-start; 
+} 
+ 
+.photo-section { 
+    flex: 0 0 250px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+ 
+.photo-container { 
+    width: 220px; 
+    height: 280px; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
+    margin-bottom: 1rem; 
+    cursor: pointer; 
+    transition: transform 0.3s; 
+} 
+ 
+.photo-container:hover { 
+    transform: scale(1.05); 
+} 
+ 
+.photo-container img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+} 
+ 
+.photo-credit { 
+    font-size: 12px; 
+    color: #A9ABAE; 
+    text-align: center; 
+    margin-bottom: 10px; 
+} 
+ 
+.photo-text { 
+    font-size: 14px; 
+    color: #333; 
+    text-align: center; 
+    line-height: 1.5; 
+} 
+ 
+.quote { 
+    font-style: italic; 
+    color: #FEFEFE; 
+    font-size: 20px; 
+    text-align: center; 
+    padding: 15px 20px; 
+    border-left: 5px solid #263868; 
+    background-color: #D2AE6D; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    margin-top: 2rem; 
+} 
+ 
+.quote.active { 
+    background-color: #263868; 
+    color: #FEFEFE; 
+    transform: scale(1.05); 
+} 
+ 
+.text-section { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+    text-align: justify; 
+} 
+ 
+.article-title { 
+    font-weight: 700; 
+    font-size: 24px; 
+    color: #263868; 
+} 
+ 
+.subtitle { 
+    font-weight: 500; 
+    font-size: 16px; 
+    color: #006199; 
+} 
+ 
+.paragraph { 
+    line-height: 1.7; 
+    text-align: justify; 
+} 
+ 
+.paragraph:hover { 
+    background-color: #f4faff; 
+} 
+ 
+.highlight { 
+    background-color: #edc782; 
+    font-weight: 600; 
+    padding: 2px 4px; 
+    border-radius: 3px; 
+} 
+ 
+.highlight-box { 
+    background-color: #f0f8ff; 
+    border-left: 5px solid #263868; 
+    padding: 15px; 
+    margin: 20px 0; 
+    border-radius: 5px; 
+    font-style: italic; 
+} 
+ 
+.footer-text { 
+    font-size: 12px; 
+    color: #A9ABAE; 
+    text-align: center; 
+    border-top: 1px solid #ddd; 
+    padding-top: 12px; 
+    margin-top: 2rem; 
+} 
+ 
+@media (max-width: 768px) { 
+    .main-content { 
+        flex-direction: column; 
+        align-items: center; 
+    } 
+}
+ 
+/* Botão flutuante inferior direito */
+#nextButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0096D1;
+    color: #FEFEFE;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: none; /* inicialmente escondido */
+}
+ 
+#nextButton:hover {
+    background-color: #1f2f5c;
+    transform: scale(1.05);
+}
+ 
+</style> 
+</head> 
+<body> 
+<div class="progress-bar" id="progressBar"></div>
+ 
+<div class="container"> 
+    <div class="header"> 
+        <div class="logo">CARTA ABERTA</div> 
+        <div class="title-section"> 
+            <div class="title">À comunidade do Grupo Brasfort</div> 
+            <div class="date">Brasília, 11 de novembro de 2025</div> 
+        </div> 
+    </div> 
+ 
+    <div class="main-content"> 
+        <div class="photo-section"> 
+            <div class="photo-container" id="photoExpand"> 
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQEal8kiv5XIWA/profile-displayphoto-scale_400_400/B4DZkWtr8yGsAk-/0/1757022699905?e=1764201600&v=beta&t=Jfqyq9GcL7YPODO449xi_618cIQyIZeCOd4MkiUAgZY" alt="Glenda Negreiros"> 
+            </div> 
+            <div class="photo-credit">Glenda Negreiros | GRUPO BRASFORT</div> 
+            <div class="photo-text">Diretora Executiva de Governança e Desenvolvimento Organizacional</div> 
+            <div class="quote" id="quoteBox">“Governança não é distância. É cuidado, clareza e compromisso com o futuro.”</div> 
+        </div> 
+ 
+        <div class="text-section" id="typingArea">
+            <!-- Conteúdo será digitado aqui -->
+        </div> 
+    </div> 
+ 
+    <div class="footer-text">Powered by BRASFORT</div> 
+</div> 
+ 
+<!-- Botão Avançar -->
+<button id="nextButton">Conheça a Curva da Mudança</button>
+ 
+<script> 
+// Alternância da citação
+const quote = document.getElementById('quoteBox'); 
+quote.addEventListener('click', () => { quote.classList.toggle('active'); });
+ 
+// Texto completo da carta
+const fullText = `
+<div class="article-title">Equipe,</div>
+ 
+<div class="paragraph">
+Se eu pudesse dar voz à nossa empresa, ela diria: <span class="highlight">eu cresci.</span>  
+E como todo crescimento, vieram novas responsabilidades, parcerias e aprendizados.  
+Agora é hora de amadurecer — e é isso que chamamos de <span class="highlight">governança.</span>
+</div>
+ 
+<div class="paragraph">
+Entrei nessa jornada há um ano e meio sem saber tudo o que significava.  
+Vivi, como muitos de vocês, o choque, a incerteza e até o medo.  
+Tive de lidar com o novo, me adaptar, confiar no processo e aprender a separar o que é emoção do que é método.  
+Foi assim que descobri que governança não é distância — é cuidado.  
+É colocar ordem onde antes havia instinto, dar clareza onde havia dúvida e garantir que o que construímos siga firme para o futuro.
+</div>
+ 
+<div class="highlight-box">
+Estamos juntos em um ponto de virada.  
+E isso não é só sobre sistemas ou processos — é sobre o jeito como escolhemos caminhar daqui pra frente.
+</div>
+ 
+<div class="paragraph">
+Nos últimos meses, revisitamos o modo de fazer, unimos sistemas, ajustamos rotinas e abrimos novos espaços de troca e aprendizado.  
+Um deles é o <span class="highlight">Gente em Foco</span>, um ponto de encontro para acompanhar de perto essa transformação.
+</div>
+ 
+<div class="paragraph">
+Nos próximos dias, o canal volta com novidades e um convite simples:  
+faça uma pausa, olhe a imagem da <span class="highlight">Curva da Mudança</span> e pergunte a si mesmo:  
+<em>“Em que ponto dela eu me vejo hoje?”</em>
+</div>
+ 
+<div class="paragraph">
+Não é um teste. Nem uma cobrança.  
+É só uma pausa — um convite para olhar para dentro e perceber como você tem enfrentado o novo, no seu ritmo, mas com propósito.
+</div>
+ 
+<div class="paragraph">
+Por que isso importa? Porque toda mudança é pessoal antes de ser organizacional.  
+Cada um reage de um jeito: com curiosidade, dúvida, empolgação ou receio. E está tudo bem.  
+O importante é reconhecer onde estamos e dar o próximo passo.
+</div>
+ 
+<div class="highlight-box">
+A <strong>Curva da Mudança</strong> não é um teste — é um espelho.  
+Serve para que cada um se perceba e siga com mais leveza e consciência.
+</div>
+ 
+<div class="paragraph">
+Me comprometo a seguir junto com vocês, com respeito e transparência.  
+Cada pequena ação conta — e todas elas, somadas, vão nos levar a uma <span class="highlight">Brasfort mais organizada, humana e preparada</span> para crescer de forma sustentável.
+</div>
+ 
+<div class="paragraph">
+A mudança está em curso.  
+E, <span class="highlight">se você está lendo esta carta, ela já começou em você também.</span>
+</div>
+ 
+<div class="paragraph" style="text-align: right; margin-top: 1.5rem;">
+<strong>Glenda Negreiros</strong><br>
+GRUPO BRASFORT
+</div>
+`;
+ 
+const typingArea = document.getElementById("typingArea");
+const progressBar = document.getElementById("progressBar");
+const nextButton = document.getElementById("nextButton");
+let i = 0;
+ 
+// Função de digitação
+function typeWriter() {
+    if (i < fullText.length) {
+        typingArea.innerHTML = fullText.substring(0, i);
+        const progress = (i / fullText.length) * 100;
+        progressBar.style.width = progress + "%";
+        i++;
+        setTimeout(typeWriter, 40);
+    } else {
+        progressBar.style.width = "100%";
+        nextButton.style.display = "block"; // mostrar botão ao finalizar
+    }
+}
+ 
+// Exibir digitação após carregamento da página
+window.onload = typeWriter;
+ 
+// Evento do botão com fade-out e redirecionamento
+nextButton.addEventListener("click", () => {
+    const container = document.querySelector(".container");
+    container.style.transition = "opacity 0.8s ease"; // duração do fade-out
+    container.style.opacity = "0"; // inicia fade-out
+    progressBar.style.transition = "opacity 0.8s ease";
+    progressBar.style.opacity = "0"; // esconde barra também
+    nextButton.style.transition = "opacity 0.8s ease";
+    nextButton.style.opacity = "0"; // esconde botão
+ 
+    // Depois de 800ms (duração do fade), redireciona
+    setTimeout(() => {
+        window.location.href = "https://pro.brasfort.com.br/login.php?uri=%2F";
+    }, 800);
+});
+</script> 
+</body> 
+</html>
