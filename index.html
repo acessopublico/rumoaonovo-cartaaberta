@@ -268,63 +268,61 @@ quote.addEventListener('click', () => { quote.classList.toggle('active'); });
 // Texto completo da carta
 const fullText = `
 <div class="article-title">Equipe,</div>
- 
+
 <div class="paragraph">
-Se eu pudesse dar voz à nossa empresa, ela diria: <span class="highlight">eu cresci.</span>  
-E como todo crescimento, vieram novas responsabilidades, parcerias e aprendizados.  
-Agora é hora de amadurecer — e é isso que chamamos de <span class="highlight">governança.</span>
+Se eu pudesse dar voz à nossa empresa, ela diria: <span class="highlight">eu cresci.</span><br>
+E como todo crescimento, vieram novas responsabilidades, parcerias e aprendizados.<br>
+Agora é hora de amadurecer, e é isso que chamamos de <span class="highlight">governança.</span>
 </div>
- 
+
 <div class="paragraph">
-Entrei nessa jornada há um ano e meio sem saber tudo o que significava.  
-Vivi, como muitos de vocês, o choque, a incerteza e até o medo.  
-Tive de lidar com o novo, me adaptar, confiar no processo e aprender a separar o que é emoção do que é método.  
-Foi assim que descobri que governança não é distância — é cuidado.  
-É colocar ordem onde antes havia instinto, dar clareza onde havia dúvida e garantir que o que construímos siga firme para o futuro.
+Entrei nessa jornada há um ano e meio sem saber tudo o que significava. Vivi, como muitos de vocês, o choque, a incerteza e até o medo.<br>
+Tive de lidar com o novo, me adaptar, confiar no processo e aprender a separar o que é emoção do que é método.<br>
+Foi assim que descobri que governança não é distância, é cuidado.<br>
+É fortalecer o que já estava em movimento, trazer clareza onde havia dúvida e garantir que o que construímos siga firme para o futuro.
 </div>
- 
+
 <div class="highlight-box">
-Estamos juntos em um ponto de virada.  
-E isso não é só sobre sistemas ou processos — é sobre o jeito como escolhemos caminhar daqui pra frente.
+Hoje, estamos juntos em um ponto de virada.<br>
+E isso não é só sobre sistemas ou processos, é sobre o jeito como escolhemos caminhar daqui pra frente.
 </div>
- 
+
 <div class="paragraph">
-Nos últimos meses, revisitamos o modo de fazer, unimos sistemas, ajustamos rotinas e abrimos novos espaços de troca e aprendizado.  
-Um deles é o <span class="highlight">Gente em Foco</span>, um ponto de encontro para acompanhar de perto essa transformação.
+Nos últimos meses, revisitamos o modo de fazer, unimos sistemas, ajustamos rotinas e aprendemos, na prática, o valor da transição.<br>
+A mudança não é apenas algo que acontece fora de nós, ela começa dentro — no olhar, nas atitudes e na disposição de seguir aprendendo.
 </div>
- 
+
 <div class="paragraph">
-Nos próximos dias, o canal volta com novidades e um convite simples:  
-faça uma pausa, olhe a imagem da <span class="highlight">Curva da Mudança</span> e pergunte a si mesmo:  
-<em>“Em que ponto dela eu me vejo hoje?”</em>
+Por isso, deixo um convite: faça uma pausa e pense com sinceridade...<br>
+<em>Em que ponto da <span class="highlight">Curva da Mudança</span> você se vê hoje?</em>
 </div>
- 
+
 <div class="paragraph">
-Não é um teste. Nem uma cobrança.  
-É só uma pausa — um convite para olhar para dentro e perceber como você tem enfrentado o novo, no seu ritmo, mas com propósito.
+Não é um teste. Nem uma cobrança.<br>
+É apenas uma pausa para perceber como cada um tem enfrentado o novo, no seu ritmo, mas com propósito.<br>
+Porque toda mudança é pessoal antes de ser organizacional.
 </div>
- 
+
 <div class="paragraph">
-Por que isso importa? Porque toda mudança é pessoal antes de ser organizacional.  
-Cada um reage de um jeito: com curiosidade, dúvida, empolgação ou receio. E está tudo bem.  
+Cada pessoa reage de um jeito, com curiosidade, dúvida, empolgação ou receio. E está tudo bem.<br>
 O importante é reconhecer onde estamos e dar o próximo passo.
 </div>
- 
+
 <div class="highlight-box">
-A <strong>Curva da Mudança</strong> não é um teste — é um espelho.  
-Serve para que cada um se perceba e siga com mais leveza e consciência.
+A <strong>Curva da Mudança</strong> não é um gráfico — é um espelho.<br>
+Ela nos ajuda a enxergar o momento que vivemos e a seguir com mais leveza e consciência.
 </div>
- 
+
 <div class="paragraph">
-Me comprometo a seguir junto com vocês, com respeito e transparência.  
-Cada pequena ação conta — e todas elas, somadas, vão nos levar a uma <span class="highlight">Brasfort mais organizada, humana e preparada</span> para crescer de forma sustentável.
+Eu me comprometo a continuar caminhando junto com vocês, com respeito e transparência.<br>
+Cada pequena ação conta, e todas elas, somadas, vão nos levar a uma <span class="highlight">Brasfort mais organizada, humana e preparada</span> para crescer de forma sustentável.
 </div>
- 
+
 <div class="paragraph">
-A mudança está em curso.  
+A mudança está em curso.<br>
 E, <span class="highlight">se você está lendo esta carta, ela já começou em você também.</span>
 </div>
- 
+
 <div class="paragraph" style="text-align: right; margin-top: 1.5rem;">
 <strong>Glenda Negreiros</strong><br>
 GRUPO BRASFORT
@@ -356,14 +354,13 @@ window.onload = typeWriter;
 // Evento do botão com fade-out e redirecionamento
 nextButton.addEventListener("click", () => {
     const container = document.querySelector(".container");
-    container.style.transition = "opacity 0.8s ease"; // duração do fade-out
-    container.style.opacity = "0"; // inicia fade-out
+    container.style.transition = "opacity 0.8s ease";
+    container.style.opacity = "0";
     progressBar.style.transition = "opacity 0.8s ease";
-    progressBar.style.opacity = "0"; // esconde barra também
+    progressBar.style.opacity = "0";
     nextButton.style.transition = "opacity 0.8s ease";
-    nextButton.style.opacity = "0"; // esconde botão
- 
-    // Depois de 800ms (duração do fade), redireciona
+    nextButton.style.opacity = "0";
+
     setTimeout(() => {
         window.location.href = "https://acessopublico.github.io/rumoaonovo-acurvadamudanca/";
     }, 800);
@@ -371,5 +368,3 @@ nextButton.addEventListener("click", () => {
 </script> 
 </body> 
 </html>
-
-
