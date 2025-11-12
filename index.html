@@ -341,7 +341,7 @@ function typeWriter() {
         const progress = (i / fullText.length) * 100;
         progressBar.style.width = progress + "%";
         i++;
-        setTimeout(typeWriter, 40);
+        setTimeout(typeWriter, 0);
     } else {
         progressBar.style.width = "100%";
         nextButton.style.display = "block"; // mostrar botão ao finalizar
@@ -368,3 +368,4 @@ nextButton.addEventListener("click", () => {
 </script> 
 </body> 
 </html>
+
